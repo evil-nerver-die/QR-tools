@@ -2,6 +2,7 @@ import qrcode
 from qrcode import image
 from tkinter import *
 from tkinter import filedialog
+from tkinter import messagebox
 
 #Create window
 wnd = Tk()
@@ -58,6 +59,7 @@ def generateCode():
     img=qr.make_image()
     fileDirect=loc.get()+'\\'+name.get()
     img.save(f'{fileDirect}.png')
+    messagebox.showinfo("KoNs QR Generator","QR Code is saved successfully !!")
 
 button = Button(wnd, text='Generate Code',font=('Courier',15,'normal'),command=generateCode)
 button.place(relx=0.35,rely=0.9, relwidth=0.25, relheight=0.05)
