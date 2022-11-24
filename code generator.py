@@ -1,5 +1,7 @@
 import qrcode
+from qrcode import image
 from tkinter import *
+from tkinter import filedialog
 
 #Create window
 wnd = Tk()
@@ -24,7 +26,14 @@ Frame2.place(relx=0.1,rely=0.35,relwidth=0.7,relheight=0.3)
 label2 = Label(Frame2,text="Enter location to save the QR Code: ",bg='HotPink4',fg='azure',font=('Courier',13,'bold'))
 label2.place(relx=0.05,rely=0.2, relheight=0.08)
 loc = Entry(Frame2,font=('Century 12'))
-loc.place(relx=0.05,rely=0.4, relwidth=1, relheight=0.2)
+loc.place(relx=0.05,rely=0.4, relwidth=0.85, relheight=0.2)
+
+def selectLoc():
+    file = filedialog.askdirectory()
+    loc.insert(0,str(file))
+
+browse_butt = Button(Frame2,text="...",font=('Courier',13,'bold'),command=selectLoc)
+browse_butt.place(relx=0.92,rely=0.4,relwidth=0.08,relheight=0.2)
 
 Frame3 = Frame(wnd,bg='HotPink4')
 Frame3.place(relx=0.1,rely=0.55,relwidth=0.7,relheight=0.3)
